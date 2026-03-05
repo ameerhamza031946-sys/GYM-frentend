@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
+
+@theme {
+  --color-primary: #256af4;
+  --color-neon-green: #39ff14;
+  --color-neon-amber: #ffbf00;
+  --color-neon-red: #ff3131;
+  --color-neon-blue: #00f3ff;
+  --color-background-light: #f5f6f8;
+  --color-background-dark: #101622;
+  --color-card-dark: #1b2333;
+  --font-display: "Space Grotesk", sans-serif;
+
+  @keyframes scan {
+    0% {
+      top: 0%
+    }
+
+    100% {
+      top: 100%
+    }
+  }
+
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      opacity: 0.3
+    }
+
+    50% {
+      opacity: 0.7
+    }
+  }
+
+  --animate-scan: scan 3s linear infinite;
+  --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background-dark);
+    color: #f1f5f9;
+    font-family: var(--font-display);
+    -webkit-tap-highlight-color: transparent;
+    min-height: max(884px, 100dvh);
+  }
+}
+
+@utility glass-panel {
+  background: rgba(27, 35, 51, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility neon-border-amber {
+  box-shadow: 0 0 15px rgba(255, 191, 0, 0.2);
+  border: 1px solid rgba(255, 191, 0, 0.3);
+}
+
+@utility neon-border-green {
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
+  border: 1px solid rgba(57, 255, 20, 0.3);
+}
+
+@utility neon-border-primary {
+  box-shadow: 0 0 15px rgba(37, 106, 244, 0.2);
+  border: 1px solid rgba(37, 106, 244, 0.3);
+}
