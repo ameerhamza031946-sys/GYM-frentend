@@ -53,7 +53,7 @@ const Login = ({ onLogin }) => {
             const requestUrl = `${API_BASE_URL}${endpoint}`;
             console.log(`DEBUG: Sending auth request to ${requestUrl}`, payload);
 
-            const response = await axios.post(requestUrl, payload, { timeout: 10000 });
+            const response = await axios.post(requestUrl, payload, { timeout: 30000 });
             console.log("DEBUG: Login Response Status:", response.status);
             const authData = response.data;
             let user = authData;
@@ -244,7 +244,7 @@ const Login = ({ onLogin }) => {
                                 password: 'password123'
                             };
                             console.log("DEBUG: Attempting demo login...", demoCreds);
-                            const res = await axios.post(`${API_BASE_URL}/auth/login`, demoCreds, { timeout: 5000 });
+                            const res = await axios.post(`${API_BASE_URL}/auth/login`, demoCreds, { timeout: 30000 });
                             const authData = res.data;
                             let user = authData;
                             if (authData.access_token) {
